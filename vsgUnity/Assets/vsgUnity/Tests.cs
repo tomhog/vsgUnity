@@ -27,9 +27,11 @@ public class Tests : MonoBehaviour
             Debug.Log("source x = " + points[i].x + " returned x = " + xvalues[i] + " match = " + (points[i].x == xvalues[i] ? "true" : "false"));
         }
 
-        MeshFilter filter = meshGameObject.GetComponent<MeshFilter>();
+        /*MeshFilter filter = meshGameObject.GetComponent<MeshFilter>();
         Debug.Log("Got mesh with " + filter.mesh.vertexCount + " verticies");
         NativeTests.ConvertMesh(filter.mesh);
+        */
+        NativeTests.ExportScene("C:\\Work\\VSG\\sceneexport.vsga", meshGameObject);
     }
 
     // Update is called once per frame

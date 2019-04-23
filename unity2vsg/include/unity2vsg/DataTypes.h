@@ -90,6 +90,54 @@ namespace unity2vsg
 		Vec2Array uv0;
 	};
 
+    enum NodeType
+    {
+        GROUP = 0,
+        TRANSFORM = 1,
+        MESH = 2,
+        LIGHT = 3
+    };
+
+    struct SceneNode;
+
+    struct SceneNodeArray
+    {
+        SceneNode* ptr;
+        uint32_t length;
+    };
+
+    struct SceneNode
+    {
+        //char* name = nullptr;
+
+        uint32_t type = static_cast<uint32_t>(NodeType::GROUP);
+
+        SceneNodeArray children;
+
+        // transform data
+        FloatArray matrix; // 16 element array for matrix data
+        
+        // mesh data
+        uint32_t meshID = -1;
+
+        // light data
+        
+    };
+
+    struct MeshArray
+    {
+        Mesh* ptr;
+        uint32_t length;
+    };
+
+    struct ExportScene
+    {
+        SceneNode root;
+
+        MeshArray meshes;
+
+        //char* exportPath;
+    };
 
     // create a vsg Array from a pointer and length, by default the ownership of the memory will be external to vsg still
     // so be sure to call Array dataRelease before the ref_ptr tries to delete the memory

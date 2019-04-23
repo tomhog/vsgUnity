@@ -17,5 +17,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 extern "C"
 {
+    // export a single mesh as a transform>stategroup>geomtry vsg graph
 	UNITY2VSG_EXPORT void unity2vsg_ConvertMesh(unity2vsg::Mesh mesh);
+
+    UNITY2VSG_EXPORT void unity2vsg_ExportScene(unity2vsg::ExportScene scene);
+
 }
